@@ -63,13 +63,19 @@ window.addEventListener('scroll', function () {
     const navLinks = document.querySelectorAll('nav a');
 
     let current = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (scrollY >= (sectionTop - 100)) {
-            current = section.getAttribute('id');
-        }
-    });
+
+    // 맨 위에 있을 때
+    if (window.scrollY <= 100) {
+        current = sections[0].getAttribute('id');
+    } else {
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollY >= (sectionTop - 500)) {
+                current = section.getAttribute('id');
+            }
+        });
+    }
 
     navLinks.forEach(link => {
         link.classList.remove('active');
@@ -103,7 +109,3 @@ function showToast(message) {
         toast.classList.add('opacity-0');
     }, 2000); // 2초 후
 }
-
-// 사용 예시: 
-// <span onclick="copyToClipboard('aaa@aaa.com')">aaa@aaa.com</span>
-

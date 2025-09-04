@@ -64,6 +64,14 @@ body {
 	border-radius: 2px;
 }
 
+@media screen and (max-width: 1200px) {
+.section-title::after{
+	left: calc(50% - 25px);
+	bottom: -20px;
+	}
+}
+
+
 /* ========== 스크롤 프로그레스 바 ========== */
 
 body::-webkit-scrollbar {
@@ -169,6 +177,12 @@ section:nth-child(odd) {
 	color: #fff;
 	background-color: #333;
 	background-attachment: fixed;
+}
+
+@media screen and (max-width: 1200px){
+	.main-section, .title {
+		height: 180px;
+	}
 }
 
 @media screen and (min-width: 1201px) and (max-width: 1600px) {
